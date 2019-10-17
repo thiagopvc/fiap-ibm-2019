@@ -1,0 +1,27 @@
+@charset "UTF-8";
+body{
+	backgroung:#005;
+}
+div{
+	width:350px;
+	height:250px auto;
+	margin:250px auto;
+	background: #ddd;
+	font-family: sans-serif;
+	text-align:center;
+	
+}
+input{
+	width:280px;
+	padding:5px;
+	border-radius:5px;
+	marign:5px;
+}
+ipunt[type=submit]{
+	color:white;
+	background:green;
+}
+span{
+	color:red;
+	font-wight:bold;
+}

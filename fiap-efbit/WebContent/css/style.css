@@ -1,0 +1,185 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: arial;
+}
+
+h1, h3, p {
+	text-align: center;
+}
+
+
+.divLista {
+	width: 80%;
+	margin: 50px auto;
+}
+
+table, tr, th, td {
+	border-collapse: collapse;
+	border: 1px solid #aaa;
+}
+
+th, td {
+	padding: 5px;
+}
+
+th {
+	width: 15%;
+	background: black;
+	color: white;
+	font-weight: bold;
+}
+
+.thNome {
+	width: 25%;
+}
+
+.btn-alt {
+	background: darkblue;
+	color: white;
+	border-radius: 3px;
+	padding: 3px 5px;
+	display: inline-block;
+	width: 90%;
+	text-align: center;
+	text-decoration: none;
+}
+
+.btn-rem {
+	background: red;
+	color: white;
+	border-radius: 3px;
+	padding: 3px 5px;
+	display: inline-block;
+	width: 90%;
+	text-align: center;
+	text-decoration: none;
+}
+
+
+.menu {
+	width: 100%;
+	height: 60px;
+	background: darkblue;
+}
+
+.menu .btn-crud {
+	width: 80px;
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 30px;
+	margin: 10px 5px;
+	background: darkblue;
+	text-align: center;
+	color:white;
+}
+
+.btn-crud:hover{
+	background: lightblue;
+	color: black;
+}
+
+span {
+	color: white;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	float: left;
+}
+
+li.dir {
+	float: right;
+}
+
+li.dir .btn-crud {
+	background: #f00;
+	color: white;
+	border-radius: 5px;
+}
+
+.menu li.nome {
+	padding: 15px 30px;
+}
+
+.divForm {
+	width: 450px;
+	margin: 100px auto;
+}
+
+input[type=text], select {
+	padding: 5px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+label {
+	display: inline-block;
+	width: 85px;
+}
+
+input[type=submit] {
+	padding: 10px;
+	background: green;
+	color: white;
+	border-radius: 5px;
+}
+
+.divBtn {
+	text-align: right;
+	padding-right: 70px;
+}
+
+.btn-voltar {
+	display:inline-block;
+	padding:10px;
+	background: darkblue;
+	color: white;
+	margin: 0px 10px;
+	border-radius: 5px;
+}
+
+select {
+	padding: 5px;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+label {
+	display: inline-block;
+	width: 85px;
+}
+
+input [type=submit] {
+	padding: 10px;
+	background: green;
+	color: white;
+	border-radius: 5px;
+}
+
+.divBtn {
+	text-align: right;
+	padding-right: 70px;
+}
+
+.btn-voltar {
+	background: darkblue;
+	color: white;
+	border-radius: 3px;
+	padding: 3px 5px;
+	margin: 0px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-decoration: none;
+	text-align: center;
+}
+
+div.rodape{
+	width:100%; height:40px; position: fixed;bottom:0px;background: black;
+	color: white; text-align: center; padding: 10px;
+}
