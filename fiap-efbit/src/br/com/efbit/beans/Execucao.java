@@ -2,10 +2,10 @@ package br.com.efbit.beans;
 
 public class Execucao {
 	private int codigo;
-	private int codigoMatricula;
-	private int codigoCapitulo;
-	private int codigoUsuario;
-	private int codigoDisciplina;
+	private Matricula matricula;
+	private Capitulo capitulo;
+	private Usuario usuario;
+	private Disciplina disciplina;
 	private int acessos;
 	private int avaliacao;
 	
@@ -13,13 +13,14 @@ public class Execucao {
 		super();
 	}
 
-	public Execucao(int codigo, int codigoMatricula, int codigoCapitulo, int codigoUsuario, int codigoDisciplina, int acessos, int avaliacao) {
+	public Execucao(int codigo, Matricula matricula, Capitulo capitulo, Usuario usuario, Disciplina disciplina,
+			int acessos, int avaliacao) {
 		super();
 		this.codigo = codigo;
-		this.codigoMatricula = codigoMatricula;
-		this.codigoCapitulo = codigoCapitulo;
-		this.codigoUsuario = codigoUsuario;
-		this.codigoDisciplina = codigoDisciplina;
+		this.matricula = matricula;
+		this.capitulo = capitulo;
+		this.usuario = usuario;
+		this.disciplina = disciplina;
 		this.acessos = acessos;
 		this.avaliacao = avaliacao;
 	}
@@ -32,36 +33,36 @@ public class Execucao {
 		this.codigo = codigo;
 	}
 
-	public int getCodigoMatricula() {
-		return codigoMatricula;
+	public Matricula getMatricula() {
+		return matricula;
 	}
 
-	public void setCodigoMatricula(int codigoMatricula) {
-		this.codigoMatricula = codigoMatricula;
+	public void setMatricula(Matricula matricula) {
+		this.matricula = matricula;
 	}
 
-	public int getCodigoCapitulo() {
-		return codigoCapitulo;
+	public Capitulo getCapitulo() {
+		return capitulo;
 	}
 
-	public void setCodigoCapitulo(int codigoCapitulo) {
-		this.codigoCapitulo = codigoCapitulo;
+	public void setCapitulo(Capitulo capitulo) {
+		this.capitulo = capitulo;
 	}
 
-	public int getCodigoUsuario() {
-		return codigoUsuario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCodigoUsuario(int codigoUsuario) {
-		this.codigoUsuario = codigoUsuario;
-	}
-	
-	public int getCodigoDisciplina() {
-		return codigoDisciplina;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public void setCodigoDisciplina(int codigoDisciplina) {
-		this.codigoDisciplina = codigoDisciplina;
+	public Disciplina getDisciplina() {
+		return disciplina;
+	}
+
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public int getAcessos() {
@@ -79,5 +80,6 @@ public class Execucao {
 	public void setAvaliacao(int avaliacao) {
 		this.avaliacao = avaliacao;
 	}
+	
 	
 }

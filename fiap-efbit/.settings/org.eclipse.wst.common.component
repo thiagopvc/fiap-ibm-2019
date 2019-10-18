@@ -2,7 +2,7 @@
     <wb-module deploy-name="fiap-efbit">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="EFBIT_(1)_(1)_(1)"/>
         <property name="java-output-path" value="/fiap-efbit/build/classes"/>
+        <property name="context-root" value="fiap-efbit"/>
     </wb-module>
 </project-modules>

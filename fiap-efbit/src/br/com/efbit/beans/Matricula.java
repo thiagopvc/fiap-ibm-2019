@@ -2,19 +2,19 @@ package br.com.efbit.beans;
 
 public class Matricula {
 	private int codigo;
-	private int codigoUsuario;
-	private int codigoDisciplina;
+	private Usuario usuario;
+	private Disciplina disciplina;
 	private String data;
 	
 	public Matricula() {
 		super();
 	}
 
-	public Matricula(int codigo, int codigoUsuario, int codigoDisciplina, String data) {
+	public Matricula(int codigo, Usuario usuario, Disciplina disciplina, String data) {
 		super();
 		this.codigo = codigo;
-		this.codigoUsuario = codigoUsuario;
-		this.codigoDisciplina = codigoDisciplina;
+		this.usuario = usuario;
+		this.disciplina = disciplina;
 		this.data = data;
 	}
 
@@ -26,20 +26,20 @@ public class Matricula {
 		this.codigo = codigo;
 	}
 
-	public int getCodigoUsuario() {
-		return codigoUsuario;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCodigoUsuario(int codigoUsuario) {
-		this.codigoUsuario = codigoUsuario;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public int getCodigoDisciplina() {
-		return codigoDisciplina;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setCodigoDisciplina(int codigoDisciplina) {
-		this.codigoDisciplina = codigoDisciplina;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public String getData() {
@@ -49,5 +49,6 @@ public class Matricula {
 	public void setData(String data) {
 		this.data = data;
 	}
-
+	
+	
 }

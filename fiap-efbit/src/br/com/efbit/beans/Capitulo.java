@@ -2,7 +2,7 @@ package br.com.efbit.beans;
 
 public class Capitulo {
 	private int codigo;
-	private int codigoDisciplina;
+	private Disciplina disciplina;
 	private String nome;
 	private String pdf;
 	private String video;
@@ -10,16 +10,6 @@ public class Capitulo {
 	
 	public Capitulo() {
 		super();
-	}
-
-	public Capitulo(int codigo, int codigoDisciplina, String nome, String pdf, String video, int status) {
-		super();
-		this.codigo = codigo;
-		this.codigoDisciplina = codigoDisciplina;
-		this.nome = nome;
-		this.pdf = pdf;
-		this.video = video;
-		this.status = status;
 	}
 
 	public int getCodigo() {
@@ -30,12 +20,12 @@ public class Capitulo {
 		this.codigo = codigo;
 	}
 
-	public int getCodigoDisciplina() {
-		return codigoDisciplina;
+	public Disciplina getDisciplina() {
+		return disciplina;
 	}
 
-	public void setCodigoDisciplina(int codigoDisciplina) {
-		this.codigoDisciplina = codigoDisciplina;
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 
 	public String getNome() {

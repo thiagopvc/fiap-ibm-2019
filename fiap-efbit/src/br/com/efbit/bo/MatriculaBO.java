@@ -1,6 +1,7 @@
 package br.com.efbit.bo;
 
 import br.com.efbit.beans.Matricula;
+import br.com.efbit.beans.Usuario;
 import br.com.efbit.dao.MatriculaDAO;
 
 public class MatriculaBO {
@@ -11,27 +12,27 @@ public class MatriculaBO {
 		matriculaDAO.addMatricula(matricula);
 		matriculaDAO.close();
 		
-		return "Matrícula Cadastrada";
+		return "Matrï¿½cula Cadastrada";
 	}
 	
-	public Matricula buscarMatricula(int codigo, int codigoUsuario) throws Exception{
+	public Matricula buscarMatricula(int codigo, Usuario usuario) throws Exception{
 		MatriculaDAO matriculaDAO = new MatriculaDAO();
 		
-		return matriculaDAO.getMatricula(codigo, codigoUsuario);
+		return matriculaDAO.getMatricula(codigo, usuario);
 	}
 	
-	public String autualizarData(String data, int codigo, int codigoUsuario) throws Exception{
+	public String autualizarData(String data, int codigo, Usuario usuario) throws Exception{
 		MatriculaDAO matriculaDAO = new MatriculaDAO();
 		
-		matriculaDAO.updateData(data, codigo, codigoUsuario);
+		matriculaDAO.updateData(data, codigo, usuario);
 		
-		return "Data de Matrícula Atualizada";
+		return "Data de Matrï¿½cula Atualizada";
 	}
 	
-	public String deletarMatricula(int codigo, int codigoUsuario) throws Exception{
+	public String deletarMatricula(int codigo, Usuario usuario) throws Exception{
 		MatriculaDAO matriculaDAO = new MatriculaDAO();
 		
-		matriculaDAO.deleteMatricula(codigo, codigoUsuario);
+		matriculaDAO.deleteMatricula(codigo, usuario);
 		
 		return "Matricula Deletada";
 	}

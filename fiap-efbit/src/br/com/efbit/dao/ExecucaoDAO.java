@@ -3,7 +3,12 @@ package br.com.efbit.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import br.com.efbit.beans.Capitulo;
+import br.com.efbit.beans.Disciplina;
 import br.com.efbit.beans.Execucao;
+import br.com.efbit.beans.Matricula;
+import br.com.efbit.beans.Usuario;
 import br.com.efbit.conexao.Conexao;
 
 public class ExecucaoDAO {
@@ -21,10 +26,10 @@ public class ExecucaoDAO {
 	//create
 	public int addExecucao(Execucao execucao) throws Exception{
 		stmt = con.prepareStatement("INSERT INTO T_EFBIT_EXECUCAO (CD_EXECUCAO, CD_MATRICULA, CD_CAPITULO, CD_USUARIO, CD_DISCIPLNA, NR_ACESSOS, NR_AVALIACAO) VALUES(SQ_EFBIT_CD_EXECUCAO.nextval,?,?,?,?,?,?)");
-		stmt.setInt(1, execucao.getCodigoMatricula());
-		stmt.setInt(2, execucao.getCodigoCapitulo());
-		stmt.setInt(3, execucao.getCodigoUsuario());
-		stmt.setInt(4, execucao.getCodigoDisciplina());
+		stmt.setInt(1, execucao.getMatricula().getCodigo());
+		stmt.setInt(2, execucao.getCapitulo().getCodigo());
+		stmt.setInt(3, execucao.getUsuario().getCodigo());
+		stmt.setInt(4, execucao.getDisciplina().getCodigo());
 		stmt.setInt(5, execucao.getAcessos());
 		stmt.setInt(6, execucao.getAvaliacao());
 		
@@ -38,10 +43,21 @@ public class ExecucaoDAO {
 		if(rs.next()) {
 			Execucao execucao = new Execucao();
 			execucao.setCodigo(rs.getInt("CD_EXECUCAO"));
-			execucao.setCodigoMatricula(rs.getInt("CD_MATRICULA"));
-			execucao.setCodigoCapitulo(rs.getInt("CD_CAPITULO"));
-			execucao.setCodigoUsuario(rs.getInt("CD_USUARIO"));
-			execucao.setCodigoDisciplina(rs.getInt("CD_DISCIPLINA"));
+			MatriculaDAO matDAO = new MatriculaDAO();
+			UsuarioDAO usuDAO = new UsuarioDAO();
+			Usuario usu = usuDAO.getUsuario(rs.getInt("CD_USUARIO"));
+			Matricula mat = matDAO.getMatricula(rs.getInt("CD_MATRICULA"), usu);
+			execucao.setMatricula(mat);
+			CapituloDAO capDAO = new CapituloDAO();
+			DisciplinaDAO discDAO = new DisciplinaDAO();
+			Disciplina disc = discDAO.getDisciplina(rs.getInt("CD_DISCIPLINA"));
+			Capitulo cap = capDAO.getCapitulo(rs.getInt("CD_CAPITULO"), disc);
+			execucao.setCapitulo(cap);
+			execucao.setUsuario(usu);
+			execucao.setDisciplina(disc);
+			capDAO.close();
+			usuDAO.close();
+			discDAO.close();
 			execucao.setAcessos(rs.getInt("NR_ACESSOS"));
 			execucao.setAvaliacao(rs.getInt("NR_AVALIACAO"));
 			return execucao;
