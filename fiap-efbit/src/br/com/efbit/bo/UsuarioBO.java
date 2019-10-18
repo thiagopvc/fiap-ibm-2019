@@ -5,26 +5,26 @@ import br.com.efbit.dao.UsuarioDAO;
 
 public class UsuarioBO {
 	
-	public String login(Usuario objetoUsuario) throws Exception {
-		UsuarioDAO usuarioDao = new UsuarioDAO();
-		Usuario usuario = usuarioDao.getUsuario(objetoUsuario.getCodigo());
-		
-		//VALIDAÇÃO DO USUÁIO
-		if (usuario.getCodigo() < 0) 
-			return "Usuario nao cadastrado";
-		
-		//VALIDACAO DO CÓDIGO
-		if(usuario.getCodigo()>10000 && usuario.getCodigo()<99999)
-			return "Código inválido";
-		
-		//VALIDAÇÃO DA SENHA
-		if (!usuario.getSenha().equals(objetoUsuario.getSenha())) 
-			return "Senha incorreta";
-		
-		return "Login Correto.";
-
-	}	
-	
+//	public String login(Usuario objetoUsuario) throws Exception {
+//		UsuarioDAO usuarioDao = new UsuarioDAO();
+//		Usuario usuario = usuarioDao.getUsuario(objetoUsuario.getCodigo());
+//		
+//		//VALIDAÇÃO DO USUÁIO
+//		if (usuario.getCodigo() < 0) 
+//			return "Usuario nao cadastrado";
+//		
+//		//VALIDACAO DO CÓDIGO
+//		if(usuario.getCodigo()>10000 && usuario.getCodigo()<99999)
+//			return "Código inválido";
+//		
+//		//VALIDAÇÃO DA SENHA
+//		if (!usuario.getSenha().equals(objetoUsuario.getSenha())) 
+//			return "Senha incorreta";
+//		
+//		return "Login Correto.";
+//
+//	}	
+//	
 	public boolean verificaLogin(int codigo, String senha) throws Exception{
 		UsuarioDAO usuarioDAO= new UsuarioDAO();
 		if(usuarioDAO.verificaLogin(codigo, senha)) {
