@@ -66,33 +66,6 @@ public class ExecucaoDAO {
 		}
 	}
 	
-//	public Execucao getAcessosPorDisplina(int codigoDisciplina) throws Exception{
-//		stmt = con.prepareStatement("SELECT NR_ACESSOS FROM T_EFBIT_EXECUCAO WHERE CD_DISCIPLINA=?");
-//		stmt.setInt(1, codigoDisciplina);
-//		rs=stmt.executeQuery();
-//		if(rs.next()) {
-//			Execucao execucao = new Execucao();
-//			execucao.setAcessos(rs.getInt("NR_ACESSOS"));
-//			return execucao;
-//		}else {
-//			return new Execucao();
-//		}
-//	}
-//	
-//	public Execucao getAvaliacaoPorDisplina(int codigoDisciplina) throws Exception{
-//		stmt = con.prepareStatement("SELECT NR_ACESSOS FROM T_EFBIT_EXECUCAO WHERE CD_DISCIPLINA=?");
-//		stmt.setInt(1, codigoDisciplina);
-//		rs=stmt.executeQuery();
-//		if(rs.next()) {
-//			Execucao execucao = new Execucao();
-//			execucao.setAvaliacao(rs.getInt("NR_AVALIACAO"));
-//			return execucao;
-//		}else {
-//			return new Execucao();
-//		}
-//	}
-	
-	//update
 	public int updateAcessos(int acessos, int codigo)throws Exception {
 		stmt = con.prepareStatement("UPDATE T_EFBIT_EXECUCAO SET NR_ACESSOS=? WHERE CD_EXECUCAO=?");
 		stmt.setInt(1, acessos);
