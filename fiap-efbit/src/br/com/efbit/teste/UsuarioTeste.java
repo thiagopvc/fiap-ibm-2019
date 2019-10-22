@@ -13,7 +13,7 @@ public class UsuarioTeste {
 		try {
 			Usuario usu = new Usuario();
 			UsuarioBO usuBO= new UsuarioBO();
-			int codigo=0;
+	//		int codigo=0;
 			int menu=0;
 			do {
 				System.out.println("MENU\n1-Cadastrar\n2-Consultar\n3-Verifica Login\n4-Busca Codigo\n5-Atualizar Cadastro\n6-Atualiza Senha\n7-Deleta Usuario\n8-Sair");
@@ -63,6 +63,6 @@ public class UsuarioTeste {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
+		l.close();
 	}
 }

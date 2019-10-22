@@ -3,6 +3,8 @@ package br.com.efbit.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.efbit.beans.Disciplina;
 import br.com.efbit.conexao.Conexao;
@@ -47,6 +49,16 @@ public class DisciplinaDAO {
 		}
 	}
 	
+	public List<Disciplina> pesquisarPorNome(String nome) throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_EFBIT_DISCIPLINA WHERE NM_DISCIPLINA LIKE ?");
+		stmt.setString(1, nome + "%");
+		rs = stmt.executeQuery();
+		List<Disciplina> lista = new ArrayList<Disciplina>();
+		while(rs.next()) {
+			lista.add(new Disciplina(rs.getInt("CD_DISCIPLINA"), rs.getString("NM_DISCIPLINA"), rs.getString("DS_DISCIPLINA"), rs.getInt("ST_DISCIPLINA")));
+		}
+		return lista;
+	}
 	//update
 	public int updateDisciplina(String nome, String descricao, int status, int codigo) throws Exception{
 		stmt = con.prepareStatement("UPDATE T_EFBIT_DISCIPLINA SET NM_DISCIPLINA=?, DS_DISCIPLINA=?, ST_DISCIPLINA WHERE CD_DISCIPLINA=?");

@@ -63,7 +63,7 @@ public class UsuarioServlet extends HttpServlet {
 		if(codigo.equals("")) {
 			Usuario usuario = new Usuario(nome, cpf, email, senha, dataNascimento, tipo);
 			usuarioBo.cadastrarUsuario(usuario);
-			request.setAttribute("msg", "Cadastrado Concluído");
+			request.setAttribute("msg", "Cadastrado Concluï¿½do");
 		}else {
 			usuarioBo.atualizarUsuario(nome, cpf, email, dataNascimento, tipo);
 			request.setAttribute("msg", "Cadastro alterado com sucesso");

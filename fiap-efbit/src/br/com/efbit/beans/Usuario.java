@@ -12,6 +12,19 @@ public class Usuario implements Comparable <Usuario>{
 	public int compareTo(Usuario usu) {
 		return nome.compareTo(usu.nome);
 	}
+	
+	public Usuario(int codigo, String nome, String cpf, String email, String senha, String dataNascimento, int tipo ) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.senha = senha;
+		this.dataNascimento = dataNascimento;
+		this.tipo = tipo;
+
+	}
+	
 	public Usuario(String nome, String cpf, String email, String senha, String dataNascimento, int tipo ) {
 		super();
 		this.nome = nome;

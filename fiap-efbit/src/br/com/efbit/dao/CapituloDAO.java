@@ -3,6 +3,8 @@ package br.com.efbit.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.efbit.beans.Capitulo;
 import br.com.efbit.beans.Disciplina;
@@ -54,6 +56,20 @@ public class CapituloDAO {
 			return new Capitulo();
 		}
 	}
+	
+	public List<Capitulo> pesquisarPorNome(String nome) throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_EFBIT_CAPITULO WHERE NM_CAPITULO LIKE ?");
+		stmt.setString(1, nome + "%");
+		rs = stmt.executeQuery();
+		List<Capitulo> lista = new ArrayList<Capitulo>();
+		while(rs.next()) {
+			lista.add(new Capitulo(rs.getInt("CD_CAPITULO"), 
+					new Disciplina(rs.getInt("CD_DISCIPLINA"), rs.getString("NM_DISCIPLINA"), rs.getString("DS_DISCIPLINA"), rs.getInt("ST_DISCIPLINA")),
+					rs.getString("NM_CAPITULO"), rs.getString("DS_PDF"),rs.getString("DS_VIDEO"), rs.getInt("ST_CAPITULO")));
+		}
+		return lista;
+	}
+	
 //update
 	public int updateCapitulo(String novoNome, String novoPdf, String novoVideo, int novoStatus, int codigo, Disciplina disciplina) throws Exception{
 		stmt = con.prepareStatement("UPDATE T_EFBIT_CAPITULO SET NM_CAPITULO=?, DS_PDF=?, DS_VIDEO=?, DS STATUS=? WHERE CD_CAPITULO=? AND CD_DISPLINA=?");

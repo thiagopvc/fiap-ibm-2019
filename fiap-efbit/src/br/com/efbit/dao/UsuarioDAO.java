@@ -3,6 +3,8 @@ package br.com.efbit.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.efbit.beans.Usuario;
 import br.com.efbit.conexao.Conexao;
@@ -58,9 +60,9 @@ public class UsuarioDAO {
 		rs=stmt.executeQuery();
 		if(rs.next()){
 			user = true;
-			System.out.println("Usuário autenticado.");
+			System.out.println("Usuï¿½rio autenticado.");
 		}else {
-			System.out.println("Senha ou matrícula erradas.");
+			System.out.println("Senha ou matrï¿½cula erradas.");
 		}
 		return user;
 	}
@@ -71,11 +73,25 @@ public class UsuarioDAO {
 		stmt.setString(1, email);
 		stmt.setString(2, senha);
 		if(rs.next()) {
+//			Usuario usuario = new Usuario();
+//			usuario.setCodigo(rs.getInt("CD_USUARIO"));
 			cod = rs.getInt("CD_USUARIO");
-			return cod;
+			System.out.println("CÃ³digo localizado.");
 		}else {
-			return 0;
+			System.out.println("CÃ³digo nao localizado.");
 		}
+		return cod;
+	}
+	
+	public List<Usuario> pesquisarPorNome(String nome) throws Exception{
+		stmt = con.prepareStatement("SELECT * FROM T_EFBIT_USUARIO WHERE NM_USUARIO LIKE ?");
+		stmt.setString(1, nome + "%");
+		rs = stmt.executeQuery();
+		List<Usuario> lista = new ArrayList<Usuario>();
+		while(rs.next()) {
+			lista.add(new Usuario(rs.getInt("CD_USUARIO"), rs.getString("NM_USUARIO"),rs.getString("DS_CPF"), rs.getString("DS_EMAIL") ,rs.getString("SN_SENHA"), rs.getString("DT_NASCIMENTO"), rs.getInt("NR_TIPO")));
+		}
+		return lista;
 	}
 //update
 	public int updateUsuario(String novoNome, String novoCpf, String novoEmail, String novaDataNascimento, int codigo) throws Exception{

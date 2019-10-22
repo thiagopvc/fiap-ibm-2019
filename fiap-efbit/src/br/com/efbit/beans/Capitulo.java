@@ -12,6 +12,26 @@ public class Capitulo implements Comparable<Capitulo>{
 		return nome.compareTo(cap.nome);
 	}
 	
+	public Capitulo(int codigo, Disciplina disciplina, String nome, String pdf, String video, int status) {
+		super();
+		this.codigo = codigo;
+		this.disciplina = disciplina;
+		this.nome = nome;
+		this.pdf = pdf;
+		this.video = video;
+		this.status = status;
+	}
+	
+//	public Capitulo(int codigo, String nomeDisc, String nome, String pdf, String video, int status) {
+//		super();
+//		this.codigo = codigo;
+//	    this.disciplina.setNome(nomeDisc);
+//		this.nome = nome;
+//		this.pdf = pdf;
+//		this.video = video;
+//		this.status = status;
+//	}
+
 	public Capitulo() {
 		super();
 	}

@@ -1,7 +1,6 @@
 package br.com.efbit.controle;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.efbit.beans.Usuario;
 import br.com.efbit.bo.UsuarioBO;
-import br.com.efbit.dao.UsuarioDAO;
 
 @WebServlet("/CadastroServlet")
 public class CadastroServlet extends HttpServlet {
@@ -22,28 +20,24 @@ public class CadastroServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 		
+		int codigo = Integer.parseInt(request.getParameter("codigo"));
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 		String dataNascimento = request.getParameter("data");
 		int tipo = 1;
-		Usuario usuario = new Usuario(nome, cpf, email, senha, dataNascimento, tipo);
+		Usuario usuario = new Usuario(codigo, nome, cpf, email, senha, dataNascimento, tipo);
 		UsuarioBO usuarioBO = new UsuarioBO();
 		
 		//dao
 		
 		try {
 			usuarioBO.cadastrarUsuario(usuario);
-			UsuarioDAO dao = new UsuarioDAO();
-			usuario.setCodigo(dao.buscarCodigo(email, senha)); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		out.println("RM:"+ usuario.getCodigo());
 	}
 
 }
