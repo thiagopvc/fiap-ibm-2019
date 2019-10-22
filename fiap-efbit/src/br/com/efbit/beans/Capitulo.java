@@ -1,12 +1,16 @@
 package br.com.efbit.beans;
 
-public class Capitulo {
+public class Capitulo implements Comparable<Capitulo>{
 	private int codigo;
 	private Disciplina disciplina;
 	private String nome;
 	private String pdf;
 	private String video;
 	private int status;
+	
+	public int compareTo(Capitulo cap) {
+		return nome.compareTo(cap.nome);
+	}
 	
 	public Capitulo() {
 		super();

@@ -1,10 +1,14 @@
 package br.com.efbit.beans;
 
-public class Disciplina {
+public class Disciplina implements Comparable <Disciplina>{
 	private int codigo;
 	private String nome;
 	private String descricao;
 	private int status;
+	
+	public int compareTo(Disciplina disc) {
+		return nome.compareTo(disc.nome);
+	}
 	
 	public Disciplina() {
 		super();

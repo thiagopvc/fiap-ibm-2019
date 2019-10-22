@@ -1,6 +1,6 @@
 package br.com.efbit.beans;
 
-public class Usuario {
+public class Usuario implements Comparable <Usuario>{
 	private int codigo;
 	private String nome;
 	private String cpf;
@@ -9,7 +9,9 @@ public class Usuario {
 	private String dataNascimento;
 	private int tipo;
 
-	
+	public int compareTo(Usuario usu) {
+		return nome.compareTo(usu.nome);
+	}
 	public Usuario(String nome, String cpf, String email, String senha, String dataNascimento, int tipo ) {
 		super();
 		this.nome = nome;
